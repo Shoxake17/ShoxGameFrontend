@@ -1,0 +1,17 @@
+# Sensitive data
+.env
+.env.local
+.env.*.local
+
+# Build folders
+dist/
+dev-dist/
+node_modules/
+
+# Docker
+docker-compose.override.yml
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

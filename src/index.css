@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+/* Pastidagilar ixtiyoriy, dizayn chiroyli chiqishi uchun */
+body {
+  background-color: #FBFBFE;
+  margin: 0;
+  font-family: sans-serif;
+}
