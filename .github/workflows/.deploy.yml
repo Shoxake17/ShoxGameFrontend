@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   workflow_dispatch:
   schedule:
-    - cron: '30 2 * * *' # ShoxPay'dan 30 minut keyin ishlaydi (server yuklamasini kamaytirish uchun)
+    - cron: '30 2 * * *' 
 
 jobs:
   # 1. Semgrep — SAST (Xavfsizlik tahlili)
@@ -77,7 +77,6 @@ jobs:
           push: true
           tags: ghcr.io/shoxake17/shoxgamefrontend:latest
           no-cache: true
-          # ShoxGame uchun kerakli Environment Variable'lar (agar bo'lsa)
           build-args: |
             VITE_BACKEND_URL=${{ secrets.VITE_GAME_BACKEND_URL }}
             VITE_SHOXPAY_URL=https://pay.shoxpro.uz
@@ -93,20 +92,19 @@ jobs:
         with:
           host: ${{ secrets.SERVER_HOST }}
           username: ${{ secrets.SERVER_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          # Rasmdagi nomga moslashtirildi:
+          key: ${{ secrets.SERVER_SSH_KEY }} 
           script: |
             mkdir -p ~/shoxpro/frontend/shoxgame
             cd ~/shoxpro/frontend/shoxgame
             
             echo ${{ secrets.GHCR_PAT }} | docker login ghcr.io -u shoxake17 --password-stdin
             
-            # Yangi imajni tortish
             docker pull ghcr.io/shoxake17/shoxgamefrontend:latest
             
-            # Agar docker-compose.yml faylingiz shu papkada bo'lsa:
+            # Docker Compose orqali yangilash
             docker compose up -d --force-recreate || docker-compose up -d --force-recreate
             
-            # Eski imajlarni tozalash
             docker image prune -f
 
   # 5. DAST — OWASP ZAP
@@ -119,5 +117,5 @@ jobs:
       - name: Run ZAP Scan
         uses: zaproxy/action-full-scan@v0.12.0
         with:
-          target: 'https://game.shoxpro.uz' # ShoxGame domenini tekshiring
+          target: 'https://game.shoxpro.uz'
           artifact_name: 'zap-shoxgame-report'
