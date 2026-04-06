@@ -5,7 +5,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { IoEyeOffOutline, IoEyeOutline } from 'react-icons/io5';
 import { FaWallet } from 'react-icons/fa';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 interface WalletProps {
   externalBalance?: number | null;

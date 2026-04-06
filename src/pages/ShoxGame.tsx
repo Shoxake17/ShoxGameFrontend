@@ -10,8 +10,8 @@ import {
   FaCreditCard,
   FaQrcode
 } from 'react-icons/fa';
-import QrCodeScanning from '../../../shared/components/QrCodeScanning';
-import { useAuth } from '../../../context/AuthContext';
+import QrCodeScanning from '../components/QrCodeScanning';
+import { useAuth } from '../context/AuthContext';
 
 interface ShoxGameProps {
   externalBalance?: number;
@@ -465,14 +465,6 @@ const ShoxGameContent: React.FC<ShoxGameProps & { isQrOpen?: boolean; setIsQrOpe
             <p className="text-gray-500 text-xs">Hozircha klublar yo'q</p>
           </div>
         )}
-      </div>
-
-      {/* Info Tag */}
-      <div className="mt-10 flex items-center justify-center gap-2 text-gray-600 opacity-50">
-        <FaInfoCircle size={10} />
-        <p className="text-[9px] font-bold uppercase tracking-widest text-center">
-            Avtomatik to'lov tizimi yoqilgan
-        </p>
       </div>
 
       {/* ── QR SCANNER MODAL ── */}

@@ -3,7 +3,7 @@ import { IoPersonOutline, IoTimeOutline, IoCheckmarkCircle, IoShieldCheckmarkOut
 import { MdOutlineSecurity, MdOutlineAccountBalanceWallet } from 'react-icons/md';
 import { FiHeadphones, FiPlus, FiLogOut } from 'react-icons/fi';
 import { twMerge } from 'tailwind-merge';
-import { useAuth } from '../../../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 const COLORS = {
   cardBg: 'bg-[#1C2135]',

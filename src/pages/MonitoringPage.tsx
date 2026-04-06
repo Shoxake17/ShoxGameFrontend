@@ -1,5 +1,5 @@
 import React from 'react';
-import Monitoring from '../../../shared/components/Monitoring';
+import Monitoring from '../components/Monitoring';
 
 interface MonitoringPageProps {
   refreshTrigger: number;

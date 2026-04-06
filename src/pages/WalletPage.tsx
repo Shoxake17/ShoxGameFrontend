@@ -1,5 +1,5 @@
 import React from 'react';
-import Wallet from '../../../shared/components/Wallet';
+import Wallet from '../components/Wallet';
 
 interface WalletPageProps {
   onScanClick: () => void;

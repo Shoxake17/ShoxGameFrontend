@@ -5,7 +5,7 @@
 
 import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { IoFilterOutline, IoCloseOutline, IoRefreshOutline, IoCalendarOutline, IoCheckmark } from 'react-icons/io5';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 interface Transaction {
   _id?: string;
